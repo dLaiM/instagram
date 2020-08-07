@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <%= link_to "ホームへ戻る", root_path, class: "navbar__brand navbar__mainLogo" %>
+    <% if user_signed_in? %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-md-auto align-items-center">
+       <li><button type="button" class="btn btn-outline-primary"><%= link_to "投稿一覧", "http://192.168.56.11:3000/posts/" %></button></li>
+       <li><button type="button" class="btn btn-outline-primary"><%= link_to "　投稿　", "http://192.168.56.11:3000/posts/new"%></button></li>
+       <li><button type="button" class="btn btn-outline-primary"><%= link_to "ユーザー", "http://192.168.56.11:3000/users/#{current_user.id}" %></button></li>
+       <li><button type="button" class="btn btn-outline-primary"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button></li>
+      </ul>
+      <% else %>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="nav  barSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-md-auto align-items-center">
+         <li><button type="button" class="btn btn-outline-primary"><%= link_to "ユーザ作成", "http://192.168.56.11:3000/users/sign_up" %></  button></li>
+         <li><button type="button" class="btn btn-outline-primary"><%= link_to "　投稿　", "http://192.168.56.11:3000/users/sign_in"%>  </button></li>
+        </ul>
+       </div>
+      <% end %>
+  </div>
+</nav>

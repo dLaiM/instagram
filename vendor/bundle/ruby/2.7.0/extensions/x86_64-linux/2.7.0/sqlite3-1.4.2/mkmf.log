@@ -1,0 +1,29 @@
+"pkg-config --exists sqlite3"
+package configuration for sqlite3 is not found
+find_header: checking for sqlite3.h... -------------------- no
+
+"gcc -o conftest -I/home/user01/.rbenv/versions/2.7.1/include/ruby-2.7.0/x86_64-linux -I/home/user01/.rbenv/versions/2.7.1/include/ruby-2.7.0/ruby/backward -I/home/user01/.rbenv/versions/2.7.1/include/ruby-2.7.0 -I. -I/home/user01/.rbenv/versions/2.7.1/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user01/.rbenv/versions/2.7.1/lib -Wl,-rpath,/home/user01/.rbenv/versions/2.7.1/lib -L. -L/home/user01/.rbenv/versions/2.7.1/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/user01/.rbenv/versions/2.7.1/lib -L/home/user01/.rbenv/versions/2.7.1/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"gcc -E -I/home/user01/.rbenv/versions/2.7.1/include/ruby-2.7.0/x86_64-linux -I/home/user01/.rbenv/versions/2.7.1/include/ruby-2.7.0/ruby/backward -I/home/user01/.rbenv/versions/2.7.1/include/ruby-2.7.0 -I. -I/home/user01/.rbenv/versions/2.7.1/include    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: sqlite3.h: No such file or directory
+ #include <sqlite3.h>
+          ^~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+/* end */
+
+--------------------
+

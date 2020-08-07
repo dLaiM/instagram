@@ -1,0 +1,25 @@
+<div class="main">
+	<div class="">
+		<div class="form-wrap">
+   		   <div class="form-group text-center">
+		   </div>
+		   <%= form_with model: @post do |f| %>
+			   <div class="form-group">
+				   <%= f.label :caption %>
+			   </div>
+			   <div class="form-group">
+				   <%= f.text_field :caption %>
+			   </div>
+			   <div class="form-group">
+				   <%= f.fields_for :photos do |i| %>
+					   <%= i.file_field :image %>
+				   <% end %>
+			   </div>
+			   <div class="actions">
+			   <%= f.submit "投稿", class: "btn btn-primary" %>
+			   </div>
+		   <% end %>
+		</div>
+	</div>
+</div>
+

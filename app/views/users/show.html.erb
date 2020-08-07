@@ -1,0 +1,42 @@
+<h1><%= @user.name%>の詳細ページ</h1>
+<%= link_to "新規投稿ページ", new_post_url, class: "btn btn-primary" %>
+<%= link_to "投稿一覧ページ", posts_path, class: "btn btn-primary" %>
+
+
+<div class="profile-wrap">
+  <div class="row">
+    <div class="col-md-4 text-center">
+	<img src=<%= @user.image.url(:medium) %> class = "icon_image", width="150" height= auto >
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <h1><%= @user.name %></h1>
+        <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+        <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="list-group text-center">
+                <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if @user == current_user %>
+        <div class="row">
+          <p>
+            <%= @user.email %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
